@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       
+      <bean class="com.ezen.battery.NormarBattery" id="nBattery"></bean> 
+      <bean class="com.ezen.battery.ChargeBattery" id="cBattery"></bean> 
+       
+	<bean id="car" class="com.ezen.toy.ElectronicCar"></bean>
+
+	<bean id="radio" class="com.ezen.toy.ElectronicRadio">
+		<constructor-arg ref="cBattery"></constructor-arg>
+       <!-- 의존 주입 - 객체 조림 -->
+       </bean>
+       <!-- 클래스의 생성자가 다른 클래스를 매개변수로 가지고 해당 객체가 전달되어야 생성자 실행이 가능하면
+       클래스가 다른 클래스에 의존하고 있다고 얘기함. 의존에 해당하는 객체를 위와 같이 CONSTRUCTOR-ARG
+       를 이용하여 채워주는 것을 의존 주입이라고함. (객체 조립이라고도 표현함) -->
+ </beans>
